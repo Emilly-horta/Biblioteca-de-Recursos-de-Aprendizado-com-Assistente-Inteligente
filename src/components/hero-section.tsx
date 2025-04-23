@@ -14,10 +14,8 @@ export default function HeroSection() {
 
     // Handle response if necessary
     const data = await response.json();
-    console.log({ data });
-    // ...
+    console.log("client", { data });
   }
-  // const onSubmit = async () => {};
   return (
     <section className="flex flex-col items-center">
       <div className="flex max-w-xl flex-col items-center pb-16 pt-8 text-center lg:pb-48 lg:pt-32">

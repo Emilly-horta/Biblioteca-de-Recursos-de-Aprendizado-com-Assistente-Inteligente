@@ -1,11 +1,12 @@
 import HeroSection from "@/components/hero-section";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
       <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
         <header className="mb-8 flex items-center justify-between border-b py-4 md:mb-12 md:py-8 xl:mb-16">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl"
             aria-label="logo"
@@ -21,7 +22,7 @@ export default function Home() {
               <path d="M96 0V47L48 94H0V47L48 0H96Z" />
             </svg>
             Flowrift
-          </a>
+          </Link>
 
           <nav className="hidden gap-12 lg:flex">
             <a href="#" className="text-lg font-semibold text-indigo-500">
