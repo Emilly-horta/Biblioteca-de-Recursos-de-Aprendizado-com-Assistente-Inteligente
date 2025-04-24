@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { NextRequest, NextResponse } from "next/server";
 //import { ScrapflyClient, ScrapeConfig } from "scrapfly-sdk";
+import searchResultsMock from "@/api-response/search-results.json";
+import { SearchResult } from "@/model/searchResult";
 
 //const key = process.env.SCRAPFLY_API_KEY ?? "";
 //const client = new ScrapflyClient({ key });
@@ -17,13 +20,19 @@ export async function POST(request: NextRequest) {
       query
     )}`;
 
-    const url = `https://api.scrapfly.io/scrape?tags=player%2Cproject%3Afrontend-web-intermediario-nextjs-typescript&format=json&extraction_model=search_engine_results&country=br&asp=true&key=${key}&url=${searchUrl}}`;
+    const url = `https://api.scrapfly.io/scrape?tags=player%2Cproject%3Afrontend-web-intermediario-nextjs-typescript&format=json&extraction_model=search_engine_results&country=br&asp=true&key=${key}&url=${searchUrl}`;
 
     const response = await fetch(url);
 
-    const result = await response.json();
+    const result = searchResultsMock;
+
+    const searchResultsApi = result.result.extracted_data.data.results;
 
     console.log("result", result);
+
+    console.log(searchResultsApi);
+
+    const searchResults: SearchResult[] = [];
 
     /* FIXME : Error in Scrapfly 
     const apiResponse = await client.scrape(
